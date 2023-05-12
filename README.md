@@ -84,7 +84,7 @@ Registers a new user.
   "mobileNumber": string,
   "userTypeCode": string
 }
-
-### License
+```
+## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
