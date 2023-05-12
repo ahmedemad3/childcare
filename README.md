@@ -25,7 +25,7 @@ This is a Childcare SaaS Product, which aims to provide a platform for parents t
 1. Clone the repository:
 
 ```
-git clone https://github.com/ahmedemad3/childcare-saas-product.git
+git clone https://github.com/ahmedemad3/childcare.git
 ```
 
 2. Install dependencies:
