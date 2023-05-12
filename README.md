@@ -49,7 +49,7 @@ psql childcare < database.sql
 To start the server, run:
 
 ```
-npm run start
+npm start
 ```
 
 The server will start on `http://localhost:3000`.
