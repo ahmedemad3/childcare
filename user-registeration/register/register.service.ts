@@ -1,7 +1,6 @@
 import { User } from "../models/user";
-import { Pool, QueryResult } from 'pg';
 import { DBService } from "../../db/db.service";
-import {Queries } from "../queries/queries"; "../queries/queries";
+import {Queries } from "../queries/queries";
 
 export class RegisterService {
     private DBService: DBService;
