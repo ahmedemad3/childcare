@@ -1,5 +1,6 @@
 export class Caregiver {
 
+    // Dont forget to add Email & Notify Methods
     id: number;
     name: string;
     description: string;
@@ -40,6 +41,6 @@ export class Caregiver {
         this.updatedAt = updatedAt;
         this.updatedBy = updatedBy;
 
-    }
+    } 
   }
   

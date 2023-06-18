@@ -66,3 +66,41 @@ CREATE TABLE childcare.caregiver (
   FOREIGN KEY (location_id) REFERENCES childcare.location(location_id),
   FOREIGN KEY (availabilty_id) REFERENCES childcare.availability(availability_id)
 );
+
+
+-- Create the booking_status table
+CREATE TABLE IF NOT EXISTS childcare.booking_status (
+  booking_status_id SERIAL PRIMARY KEY,
+  booking_status_code VARCHAR(20) NOT NULL unique,
+  booking_status_name VARCHAR(20) NOT NULL
+);
+
+-- Insert default booking statuses
+INSERT INTO childcare.booking_status (booking_status_code, booking_status_name)
+VALUES
+  ('PENDING', 'Pending'),
+  ('CONFIRMED', 'Confirmed'),
+  ('CANCELED', 'Canceled');
+
+-- Create the booking table
+CREATE TABLE IF NOT EXISTS childcare.booking (
+  id SERIAL PRIMARY KEY,
+  booking_code VARCHAR(8),
+  caregiver_id INT NOT NULL,
+  parent_id INT NOT NULL,
+  start_date_time TIMESTAMP NOT NULL,
+  end_date_time TIMESTAMP NOT NULL,
+  booking_status_code VARCHAR(20) NOT NULL,
+  created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  created_by VARCHAR(50),
+  updated_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_by VARCHAR(50),
+  FOREIGN KEY (caregiver_id) REFERENCES childcare.caregiver (caregiver_id),
+  FOREIGN KEY (parent_id) REFERENCES childcare.users (user_id),
+  FOREIGN KEY (booking_status_code) REFERENCES childcare.booking_status (booking_status_code)
+);
+
+-- Create an index on the start_date_time column for better performance
+CREATE INDEX IF NOT EXISTS idx_bookings_start_date_time ON bookings (start_date_time);
+
+
